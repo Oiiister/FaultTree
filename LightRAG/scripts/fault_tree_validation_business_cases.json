@@ -1,0 +1,92 @@
+[
+  {
+    "name": "structure_case_broken_and_isolated",
+    "description": "结构问题样例：存在孤立节点、断裂连线、顶事件缺少下游逻辑门。",
+    "payload": {
+      "enable_llm_suggestions": true,
+      "nodes": [
+        {"id": "top_1", "label": "主泵失效", "type": "top"},
+        {"id": "middle_1", "label": "供电异常", "type": "middle"},
+        {"id": "isolated_1", "label": "孤立传感器异常", "type": "basic"}
+      ],
+      "edges": [
+        {"id": "edge_1", "source": "middle_1", "target": "missing_node"}
+      ]
+    },
+    "expected": {
+      "valid": false,
+      "error_count_min": 2,
+      "warning_count_min": 1,
+      "required_issue_codes": [
+        "top_event_without_gate",
+        "missing_edge_endpoint",
+        "isolated_node"
+      ]
+    }
+  },
+  {
+    "name": "hierarchy_case_level_inversion",
+    "description": "层级问题样例：底事件继续向下分解，且通过逻辑门指向更高层事件。",
+    "payload": {
+      "enable_llm_suggestions": true,
+      "nodes": [
+        {"id": "top_1", "label": "制动失效", "type": "top"},
+        {"id": "gate_1", "label": "OR门", "type": "gate", "gate": "OR"},
+        {"id": "basic_1", "label": "刹车片磨损", "type": "basic"},
+        {"id": "gate_2", "label": "AND门", "type": "gate", "gate": "AND"},
+        {"id": "middle_1", "label": "液压波动", "type": "middle"},
+        {"id": "top_2", "label": "错误顶事件", "type": "top"}
+      ],
+      "edges": [
+        {"id": "edge_1", "source": "top_1", "target": "gate_1"},
+        {"id": "edge_2", "source": "gate_1", "target": "basic_1"},
+        {"id": "edge_3", "source": "basic_1", "target": "gate_2"},
+        {"id": "edge_4", "source": "gate_2", "target": "top_2"},
+        {"id": "edge_5", "source": "gate_2", "target": "middle_1"}
+      ]
+    },
+    "expected": {
+      "valid": false,
+      "error_count_min": 3,
+      "required_issue_codes": [
+        "basic_event_has_children",
+        "basic_event_feeds_gate",
+        "event_level_inversion",
+        "top_event_as_gate_child",
+        "multiple_top_events"
+      ]
+    }
+  },
+  {
+    "name": "logic_case_cycle_and_direct_event_link",
+    "description": "逻辑问题样例：事件直接相连、门到门连接、重复连线以及闭环。",
+    "payload": {
+      "enable_llm_suggestions": true,
+      "nodes": [
+        {"id": "top_1", "label": "主控失效", "type": "top"},
+        {"id": "middle_1", "label": "控制电源异常", "type": "middle"},
+        {"id": "gate_1", "label": "OR门", "type": "gate", "gate": "OR"},
+        {"id": "gate_2", "label": "AND门", "type": "gate", "gate": "AND"},
+        {"id": "basic_1", "label": "继电器故障", "type": "basic"}
+      ],
+      "edges": [
+        {"id": "edge_1", "source": "top_1", "target": "middle_1"},
+        {"id": "edge_2", "source": "middle_1", "target": "gate_1"},
+        {"id": "edge_3", "source": "gate_1", "target": "gate_2"},
+        {"id": "edge_4", "source": "gate_2", "target": "basic_1"},
+        {"id": "edge_5", "source": "gate_2", "target": "basic_1"},
+        {"id": "edge_6", "source": "basic_1", "target": "gate_1"}
+      ]
+    },
+    "expected": {
+      "valid": false,
+      "error_count_min": 4,
+      "required_issue_codes": [
+        "event_to_event_connection",
+        "gate_to_gate_connection",
+        "duplicate_edge_pair",
+        "cycle_detected"
+      ]
+    }
+  }
+]

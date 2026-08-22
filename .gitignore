@@ -1,0 +1,56 @@
+.DS_Store
+.repo_meta_backup/
+**/node_modules/
+*.docx
+
+# LightRAG local/runtime files
+LightRAG/.env
+LightRAG/.venv/
+LightRAG/venv/
+LightRAG/**/__pycache__/
+LightRAG/**/*.py[cod]
+LightRAG/inputs/
+LightRAG/data/
+LightRAG/output/
+LightRAG/rag_storage/
+LightRAG/rag_storage_local_dev/
+LightRAG/backups/
+LightRAG/*.log
+LightRAG/*.log.*
+LightRAG/lightrag_hku.egg-info/
+LightRAG/lightrag/api/webui/
+LightRAG/快速启动.md
+LightRAG/新版项目详细实施方案.md
+
+# fault-tree-ui local/runtime files
+fault-tree-ui/node_modules/.DS_Store
+.repo_meta_backup/
+**/node_modules/
+*.docx
+
+# LightRAG local/runtime files
+LightRAG/.env
+LightRAG/.venv/
+LightRAG/venv/
+LightRAG/**/__pycache__/
+LightRAG/**/*.py[cod]
+LightRAG/inputs/
+LightRAG/data/
+LightRAG/output/
+LightRAG/rag_storage/
+LightRAG/rag_storage_local_dev/
+LightRAG/backups/
+LightRAG/*.log
+LightRAG/*.log.*
+LightRAG/lightrag_hku.egg-info/
+LightRAG/lightrag/api/webui/
+LightRAG/快速启动.md
+LightRAG/新版项目详细实施方案.md
+
+# fault-tree-ui local/runtime files
+fault-tree-ui/node_modules/
+
+# Local editor and test artifacts
+.vscode/
+LightRAG/lightrag_webui/test-results/
+LightRAG/lightrag_webui/playwright-report/
