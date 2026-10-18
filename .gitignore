@@ -1,31 +1,52 @@
+# === OS / 编辑器 ===
 .DS_Store
-.repo_meta_backup/
-**/node_modules/
-*.docx
-.venv/
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# Backend local/runtime files
+# === 本机 / 工具状态（勿提交） ===
+.claude/settings.local.json
+.codex-build/
+.repo_meta_backup/
+
+# === 依赖 ===
+node_modules
+**/node_modules/
+.venv/
+venv/
+
+# === 构建 / 生成产物 ===
+output/
+tmp/
+*.bak
+backend/lightrag/api/webui/
+
+# === 后端本地 / 运行时文件 ===
 backend/.env
 backend/.venv/
 backend/venv/
-backend/**/__pycache__/
-backend/**/*.py[cod]
 backend/inputs/
 backend/data/
-backend/output/
 backend/rag_storage/
 backend/rag_storage_local_dev/
 backend/backups/
+backend/**/__pycache__/
+backend/**/*.py[cod]
 backend/*.log
 backend/*.log.*
 backend/lightrag_hku.egg-info/
-backend/lightrag/api/webui/
-backend/快速启动.md
-backend/新版项目详细实施方案.md
+backend/.pytest_cache/
 
-# Frontend test artifacts
+# === 测试 / 临时产物 ===
+backend/lightrag/test001.json
 frontend/test-results/
 frontend/playwright-report/
 
-# Local editor
-.vscode/
+# === 前端本地环境 ===
+frontend/.env.local
+frontend/env.local
+
+# === 后端本地文档（已归档到 project_docs/） ===
+backend/快速启动.md
+backend/新版项目详细实施方案.md
