@@ -2,55 +2,30 @@
 .repo_meta_backup/
 **/node_modules/
 *.docx
+.venv/
 
-# LightRAG local/runtime files
-LightRAG/.env
-LightRAG/.venv/
-LightRAG/venv/
-LightRAG/**/__pycache__/
-LightRAG/**/*.py[cod]
-LightRAG/inputs/
-LightRAG/data/
-LightRAG/output/
-LightRAG/rag_storage/
-LightRAG/rag_storage_local_dev/
-LightRAG/backups/
-LightRAG/*.log
-LightRAG/*.log.*
-LightRAG/lightrag_hku.egg-info/
-LightRAG/lightrag/api/webui/
-LightRAG/快速启动.md
-LightRAG/新版项目详细实施方案.md
+# Backend local/runtime files
+backend/.env
+backend/.venv/
+backend/venv/
+backend/**/__pycache__/
+backend/**/*.py[cod]
+backend/inputs/
+backend/data/
+backend/output/
+backend/rag_storage/
+backend/rag_storage_local_dev/
+backend/backups/
+backend/*.log
+backend/*.log.*
+backend/lightrag_hku.egg-info/
+backend/lightrag/api/webui/
+backend/快速启动.md
+backend/新版项目详细实施方案.md
 
-# fault-tree-ui local/runtime files
-fault-tree-ui/node_modules/.DS_Store
-.repo_meta_backup/
-**/node_modules/
-*.docx
+# Frontend test artifacts
+frontend/test-results/
+frontend/playwright-report/
 
-# LightRAG local/runtime files
-LightRAG/.env
-LightRAG/.venv/
-LightRAG/venv/
-LightRAG/**/__pycache__/
-LightRAG/**/*.py[cod]
-LightRAG/inputs/
-LightRAG/data/
-LightRAG/output/
-LightRAG/rag_storage/
-LightRAG/rag_storage_local_dev/
-LightRAG/backups/
-LightRAG/*.log
-LightRAG/*.log.*
-LightRAG/lightrag_hku.egg-info/
-LightRAG/lightrag/api/webui/
-LightRAG/快速启动.md
-LightRAG/新版项目详细实施方案.md
-
-# fault-tree-ui local/runtime files
-fault-tree-ui/node_modules/
-
-# Local editor and test artifacts
+# Local editor
 .vscode/
-LightRAG/lightrag_webui/test-results/
-LightRAG/lightrag_webui/playwright-report/

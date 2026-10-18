@@ -1,0 +1,20 @@
+services:
+  lightrag:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${HOST:-0.0.0.0}:${PORT:-9621}:9621"
+    volumes:
+      - ./backend/data/rag_storage:/app/data/rag_storage
+      - ./backend/data/inputs:/app/data/inputs
+      - ./backend/config.ini:/app/config.ini
+      - ./backend/.env:/app/.env
+    restart: on-failure
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      WORKING_DIR: "/app/data/rag_storage"
+      INPUT_DIR: "/app/data/inputs"
+      HOST: "0.0.0.0"
+      PORT: "9621"

@@ -1,0 +1,54 @@
+# LightRAG-HKU 后端 API 服务依赖
+# 由 pyproject.toml 的 [project.dependencies] + [project.optional-dependencies].api 合并生成
+# 要求 Python >= 3.10
+
+# ---- Web 框架 / API 服务 ----
+fastapi
+uvicorn
+gunicorn
+python-multipart
+httpcore
+httpx>=0.28.1
+jiter
+
+# ---- 核心 RAG 依赖 ----
+aiohttp
+configparser
+json_repair
+nano-vectordb
+networkx
+numpy>=1.24.0,<3.0.0
+packaging
+pandas>=2.0.0,<2.4.0
+pipmaster
+pydantic
+pypinyin
+python-dotenv
+setuptools
+tenacity
+tiktoken
+xlsxwriter>=3.1.0
+
+# ---- LLM 提供商 ----
+openai>=2.0.0,<3.0.0
+google-api-core>=2.0.0,<3.0.0
+google-genai>=1.0.0,<2.0.0
+
+# ---- 文档处理（文件上传解析）----
+openpyxl>=3.0.0,<4.0.0
+pycryptodome>=3.0.0,<4.0.0
+pypdf>=6.1.0
+python-docx>=0.8.11,<2.0.0
+python-pptx>=0.6.21,<2.0.0
+
+# ---- 认证 / 安全 ----
+bcrypt>=4.0.0
+PyJWT>=2.8.0,<3.0.0
+python-jose[cryptography]
+
+# ---- 其他工具 ----
+aiofiles
+ascii_colors
+distro
+psutil
+pytz
